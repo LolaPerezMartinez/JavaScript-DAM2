@@ -86,8 +86,8 @@
     </div>
     <script>
         
-        const incremento = document.querySelector('#incremento');
-        const numeroContador = document.querySelector('#contador');
+      const numeroContador = document.querySelector('#contador');
+      const incremento = document.querySelector('#incremento');
         const decremento = document.querySelector('#decremento');
         const reset = document.querySelector('#reset');
         let contador = 0;
@@ -117,7 +117,12 @@
             numeroContador.textContent = contador;
         }
 
-        reset.addEventListener('click', () => { numeroContador.textContent = 0});
+        reset.addEventListener('click', () => { 
+          contador = 0;
+          modificarNumero();
+          
+
+        });
 
         
 

@@ -53,6 +53,7 @@
   <script>
     const botonCambiar = document.querySelector("#cambiarColor");
     let body = document.querySelector("body");
+    const textoColor = document.querySelector('#colorActual');
 
     const arrayColores = [
       "#FFB3BA",
@@ -71,6 +72,8 @@
       let indiceRandom = Math.floor(Math.random() * arrayColores.length);
       let colorRandom = arrayColores[indiceRandom];
       let nuevoColor = (body.style.background = colorRandom);
+      textoColor.textContent = `Color actual: ${colorRandom}`;
+      console.log(colorRandom);
     });
   </script>
 </html>
