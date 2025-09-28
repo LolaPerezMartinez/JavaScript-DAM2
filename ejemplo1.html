@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo 1 JavaScript</title>
+  </head>
+
+  <body>
+    <h1>Título: Ejemplo 1</h1>
+    <script>
+      /*-las variables se declaran con let o directamente
+        -let es para declarar de forma local, en general es la mas utilizada
+        */
+      let v0 = true;
+      console.log(v0);
+
+      v1 = 75;
+      console.log(v1);
+
+      v1 = "hola";
+      console.log(v1);
+
+      /*Una variable no puedo usarla antes de declararla
+        tampoco es correcto declararla dos veces como pasa en el primer y segundo párrafo
+        por eso esto daría error de cualquier manera*/
+      /* v2 = 7;
+         let v2 = 9;
+         console.log(v2);*/
+
+      /*var se utiliza para variables globales por eso no se suele utilizar*/
+
+      /*Casos*/
+
+      /*Se puede declarar 2 veces pero no se recomienda*/
+      var v3 = 7;
+      var v3 = 9;
+      console.log(v3);
+
+      /*Con let no se puede declarar dos veces con el mismo nombre*/
+      /* let v2= 'hola';
+         v2 = 'caracol';
+         console.log(v2);*/
+
+      /*a las constantes no se  les pueden cambiar los valores*/
+      /*const c1 = 5;
+        c1 = 8;
+        console.log(c1);*/
+
+      /*Dos formas de imprimir*/
+      let edad = 10;
+      let nombre = "Pedro";
+      let persona = nombre + " tiene " + edad + " años.\n";
+      console.log(persona);
+
+      persona2 = `${nombre} tiene ${edad} años.`;
+      console.log(persona2);
+
+      /*no se recomienda asignar un valor sin declararlo*/
+      let estado = true;
+
+      if (estado) {
+        estado2 = false;
+      }
+      console.log(estado2);
+
+      /*Los array en javascript son como arrayList en Java*/
+      /*const significa que frutas siempre apunta a este array aunque Éste cambie. 
+        LO QUE ES CONSTANTE ES LA REFERENCIA AL OBJETO*/
+      const frutas = ["peras", "manzanas", "plátanos"];
+      console.log(frutas);
+
+      /*push() ➝ añade un elemento al final del array.*/
+      frutas.push("tomate");
+      console.log(frutas);
+
+      /*unshift() ➝ añade un elemento al principio del array.*/
+      frutas.unshift("cereza");
+      console.log(frutas);
+
+      /*pop() -> borra el ultimo elemento*/
+      frutas.pop();
+      console.log(frutas);
+
+      console.log("\n");
+      /*for of es como forEach en Java*/
+       /*en foreach se recomienda usar const porque se recorren los elementos simplemente*/
+      for (const fruta of frutas) {
+        console.log("- " + fruta);
+      }
+
+      
+      /*for como el de java pero con la declaracion let*/
+      /*en for normal se recomienda usar let porque el i va cambiando en cada iteración*/
+      for (let i = 0; i < frutas.length; i++) {
+        console.log("+ " + frutas[i]);
+      }
+
+      console.log("\n");
+
+      /*se puede llamar a un método antes de estar declarado solo si utilizas la sintaxis de la funcion */
+      muestraArray(frutas);
+      /*lo que devuelve no se expresa en el nombre del método y en el parámetro no hace falta especificar el tipo*/
+      function muestraArray(array) {
+        for (const elemento of frutas) {
+          console.log("* " + elemento);
+        }
+      }
+
+      console.log("\n");
+      muestraArray(frutas);
+      /*lo que devuelve no se espresa en el nombre del método y en el parámetro no hace falta especificar el tipo*/
+      function muestraArray(array = ["defecto 1", "defecto 2S"]) {
+        for (const elemento of frutas) {
+          console.log(": " + elemento);
+        }
+      }
+
+      console.log("\n");
+      /*Tambien podemos mostrarlo con un while*/
+      let i = 0;
+      while (i < frutas.length) {
+        console.log(`x - ${frutas[i]}`);
+        i++;
+      }
+
+      console.log("\n");
+      /*Do while*/
+      i = 0;
+      do {
+        console.log(`*** ${frutas[i++]}`);
+      } while (i < frutas.length);
+
+      console.log("\n");
+      /*Do while*/
+      i = 0;
+
+      /*Esto da error en console.log porque frutas que era una constante ahora lo pongo apuntando a otro objeto*/
+      /* frutas = [];
+ 
+         do{
+             console.log(`*** ${frutas[i++]}`)
+         }while(i < frutas.length);*/
+
+      console.log("\n");
+      /*-Cuenta los numeros positivos
+          -Duplica el valor de los numeros
+          -elimina los numeros negativos*/
+
+      let contador = 0;
+      const numeros = [1, -5, 3, 6, 0, 2];
+
+      console.log("\n");
+      /*Numeros positivos con for*/
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] >= 0) {
+          contador++;
+        }
+      }
+      console.log(`Los numeros positivos son: ${contador}`);
+
+      console.log("\n");
+      /*Numeros positivos con foreach*/
+      contador = 0;
+      for (const numero of numeros) {
+        if (numero >= 0) {
+          contador++;
+        }
+      }
+      console.log(`Los numeros positivos son: ${contador}`);
+
+      console.log("\n");
+      /*Javi*/
+      contador = 0;
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] >= 0) contador++;
+        numeros[i] *= 2;
+      }
+      console.log(`Los numeros positivos y duplicados: `, numeros);
+
+      console.log("\n");
+      /*duplicar números*/
+      for (let i = 0; i < numeros.length; i++) {
+        numeros[i] *= 2;
+        console.log(numeros[i]);
+      }
+
+      /*Eliminar numeros*/
+
+      for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] < 0) {
+          /*slice hace una rebanada decimos desde donde cuántos queremos borrar*/
+          numeros.splice(i, 1);
+          i--;
+        }
+      }
+      
+      console.log("\n");
+      console.log(`Con método .splice(i,x)`)
+      console.log(numeros);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de datos</title>
+</head>
+<body>
+
+    <h1>3. Tipos de datos</h1>
+    <p id="1"></p>
+    <p id="2"></p>
+    <p id="3"></p>
+    <p id="4"></p>
+    <p id="5"></p>
+    <p id="6"></p>
+    <p id="7"></p>
+    <p id="8"></p>
+    <p id="9"></p>
+    <p id="10"></p>
+    <p id="11"></p>
+    <p id="12"></p>
+    <p id="13"></p>
+
+
+    <script>
+    /*Symbol es para crear un objeto unico, son dos objetos únicos*/
+    const simbolo1 = Symbol('descripción');
+    const simbolo2 = Symbol('descripción');
+
+    // 5 == '5' es como el equals en Java, valora el contenido --> true
+    // 5 === '5' con iguales de valor pero no de tipo --> false
+    //javaScript tiene equals pero es para objetos?
+    
+    //s1 == s2 --> false
+    //s1 === s2 --> false
+
+    // los numeros en javaScript no dan la vuelta simplemente pierden precisión-->buscar
+    //los numeros y los bigInt no se pueden mezclar deben castearse
+
+    const ID = Symbol('id');
+    const usuario = {
+        nombre: 'Juan',
+        [ID]: 12345
+    };
+    console.log(usuario.nombre);
+    console.log(usuario.ID);
+
+    for(let key in usuario){
+        console.log(`${key} : ${usuario[key]}`);
+        
+    }
+    console.log(`El ID del usuario es: ${usuario[ID]}`);
+    Object.keys(usuario); 
+    
+    /*Ejercicios*/
+    
+    const numero1 = 10;
+    document.getElementById('1').innerHTML = `${numero1} se corresponde con el tipo ${typeof numero1}`;
+
+
+    const numero2 = -10;
+    document.getElementById('2').innerHTML = `${numero2} se corresponde con el tipo ${typeof numero2}`;
+
+    const numero3 = 10;
+    document.getElementById('3').innerHTML = `${numero3} se corresponde con el tipo ${typeof numero3}`;
+    
+    const numero4 = 10.5;
+    document.getElementById('4').innerHTML = `${numero4} se corresponde con el tipo ${typeof numero4}`;
+
+    const numero5 = 0o343;
+    document.getElementById('5').innerHTML = `0o${numero5.toString(8).toUpperCase()} es en decimal ${numero5} y se corresponde con el tipo ${typeof numero5}`; 
+
+    const numero6 = 0b10001;
+    document.getElementById('6').innerHTML = `0b${numero6.toString(2)} es en decimal ${numero6} y se corresponde con el 
+    tipo ${typeof numero6}`;
+
+    const numero7 = 0xfe21;
+    document.getElementById('7').innerHTML = `0x${numero7.toString(16)} es en decimal ${numero7} y se corresponde con el tipo ${numero7}`;
+
+    const numero8 = Infinity;
+    document.getElementById('8').innerHTML = `${numero8} se corresponde con el tipo ${typeof number8}`;
+
+    const numero9 = NaN;
+    document.getElementById('9').innerHTML = `${numero9} se corresponde con el tipo ${typeof numero9}`;
+
+    const numero10 = true;
+    document.getElementById('10').innerHTML = `${numero10} se corresponde con el tipo ${typeof numero10}`;
+
+    const numero11 = undefined;
+    document.getElementById('11').innerHTML = `${numero11} se corresponde con el tipo ${typeof numero11}`;
+
+    const numero12 = null;
+    document.getElementById('12').innerHTML = `${numero12} se corresponde con el tipo ${typeof numero12}`;
+
+    const numero13 = 9007199254740991;
+    document.getElementById('13').innerHTML = `${numero13} se corresponde con el tipo ${typeof numero13}`;
+
+    
+    
+
+    </script>
+
+    
+</body>
+</html>

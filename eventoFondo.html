@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambiador de Color</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        transition: background-color 0.5s ease;
+      }
+      h1 {
+        margin-bottom: 30px;
+      }
+      button {
+        padding: 12px 25px; /* Botón más grande y cómodo */
+        font-size: 16px;
+        cursor: pointer;
+        border: none; /* Sin borde por defecto */
+        border-radius: 12px; /* Bordes redondeados */
+        background-color: #640D5F; 
+        color: white; /* Texto blanco */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        transition: all 0.3s ease; /* Transición suave al hacer hover */
+      }
+
+      button:hover {
+        background-color: #c22eba; /* Verde más oscuro al pasar el ratón */
+        transform: translateY(-2px); /* Subida ligera del botón */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+      }
+
+      button:active {
+        transform: translateY(1px); /* Efecto de presionar */
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      #colorActual {
+        margin-top: 20px;
+        font-size: 18px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cambiador de Color</h1>
+    <button id="cambiarColor">Cambiar Color</button>
+    <div id="colorActual">Color actual: #FFFFFF</div>
+  </body>
+
+  <script>
+    const botonCambiar = document.querySelector("#cambiarColor");
+    let body = document.querySelector("body");
+
+    const arrayColores = [
+      "#FFB3BA",
+      "#FFDFBA",
+      "#FFFFBA",
+      "#BAFFC9",
+      "#BAE1FF",
+      "#E0BBE4",
+      "#FEC8D8",
+      "#C1F0F6",
+      "#FFD1DC",
+      "#F0E68C",
+    ];
+
+    botonCambiar.addEventListener("click", () => {
+      let indiceRandom = Math.floor(Math.random() * arrayColores.length);
+      let colorRandom = arrayColores[indiceRandom];
+      let nuevoColor = (body.style.background = colorRandom);
+    });
+  </script>
+</html>

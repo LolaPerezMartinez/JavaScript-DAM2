@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<style>
+    /* 🌈 Fondo general */
+    body {
+      display: flex;
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #97e7d3, #10dacf); /* Degradado bonito */
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+    }
+
+    /* 📝 Título */
+    h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* 🔢 Contador */
+    #contador {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(0,0,0,0.2);
+      padding: 10px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    /* 🔘 Contenedor de botones */
+    .botones {
+      display: flex;
+      gap: 15px; /* Espacio entre botones */
+    }
+
+    /* 🎨 Estilo de botones */
+    button {
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: white;
+    }
+
+    /* 🔘 Colores personalizados */
+    #decremento, #incremento {
+        color:black;
+        background-color: #F6FF99;
+    }
+    #reset {
+    color:black;
+      background-color: #932F67;
+    }
+    
+
+    /* ✨ Efecto hover */
+    button:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+
+    
+</style>
+<body>
+    <h1>Contador Bonito</h1>
+    <h3 id="contador"></h3>
+    <div class="botones">
+        <button id="decremento">-</button>
+        <button id="reset">Reset</button>
+        <button id="incremento">+</button>
+    </div>
+    <script>
+        
+        const incremento = document.querySelector('#incremento');
+        const numeroContador = document.querySelector('#contador');
+        const decremento = document.querySelector('#decremento');
+        const reset = document.querySelector('#reset');
+        let contador = 0;
+
+        numeroContador.innerHTML = contador;
+
+
+        incremento.addEventListener('click', () => {
+            contador++;
+            modificarNumero();
+        });
+
+
+        decremento.addEventListener('click', () => {
+            contador--;
+            contador = contador <= 0 ? 0 : contador;
+            modificarNumero();
+            
+        });
+
+       /* function modificarNumero(){
+            numeroContador.innerHTML = `<p>${contador}</p>`;
+        }*/
+        
+        function modificarNumero(){
+            //.textContent sirve para leer el valor o modificarlo
+            numeroContador.textContent = contador;
+        }
+
+        reset.addEventListener('click', () => { numeroContador.textContent = 0});
+
+        
+
+
+        
+    </script>
+    
+</body>
+</html>

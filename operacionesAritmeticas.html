@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones aritmeticas</title>
+</head>
+<body>
+    <script>
+        // console.log si utilizas "," aparece un espacio entre los datos
+        let x = 2;
+        x **= 3;
+        console.log(x);
+
+        x = 2;
+        x / 3;
+        console.log(x);
+
+       // Los array y objetos en JavaScript se comparan por referencia
+       const obj1 = {};
+       const obj2 = obj1;
+       console.log(obj1 === obj2);
+       console.log(obj1 == obj2);
+
+       const arr1 = [1, 2, 3];
+       const arr2 = [1, 2, 3];
+       const sonIguales = JSON.stringify(arr1) === JSON.stringify(arr2);
+
+       console.log(`Los array iguales en tipos de datos son: ${sonIguales}`);
+
+       const arr3 = [1, 2, 3];
+       const arr4 = ['1', 2, 3];
+       const sonIguales1 = JSON.stringify(arr3) === JSON.stringify(arr4);
+
+       console.log(`Los array disntintos en tipos de datos son: ${sonIguales1}`);
+
+
+       //buscar
+       const valorPredeterminado = null ?? "Valor por defecto";
+       console.log(valorPredeterminado);
+
+       console.log("\n");
+       
+       //Ejemplo forEach
+       const numeros = [1, 2, 3, 4, 5];
+       numeros.forEach(numero => {console.log(`Numero: ${numero}`)});
+
+       console.log("\n");
+       //el .map te crea un nuevo array
+       //Ejemplo creando nuevo array con cada elemento multiplicado por 2
+       const duplicados = numeros.map(numero => numero * 2);
+       console.log(`Array con valores duplicados ${duplicados}`);
+
+       // Ejemplo de filter (crea un nuevo array con los elementos que pasan el filtro)
+        console.log("\n");
+        const impares = numeros.filter(numero => numero % 2 !== 0);
+        console.log(`Nuevo array filtrado: ${impares}`);
+
+        console.log("\n");
+        
+
+
+    </script>
+    
+</body>
+</html>

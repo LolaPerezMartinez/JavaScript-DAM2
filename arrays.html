@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays</title>
+  </head>
+  <body>
+    <h1>Arrays</h1>
+    <ul id="contenido"></ul>
+    <table></table>
+    <script>
+      // Función sacar una tabla con la información de cualquier array
+      const numeros = [1, 2, 3, 4, 5];
+
+      console.log(`Función sacar una tabla`);
+      function sacarTabla(array) {
+        for (const [indice, valor] of array.entries()) {
+          const texto = document.getElementById("contenido");
+          texto.innerHTML += `<li>Indice: ${indice}. Valor: ${valor}</li>`;
+          console.log(`Indice: ${indice}. Valor: ${valor}`);
+        }
+      }
+
+      sacarTabla(numeros);
+
+      //REDUCE: REDUCE EL ARRAY A UN ÚNICO VALOR
+      //Suma
+      console.log("\n");
+      console.log(`REDUCE`);
+
+      const suma = numeros.reduce((total, n) => total + n, 0);
+      console.log(`1. Suma: ${suma}`);
+
+      const multiplicacion = numeros.reduce((total, n) => total * n, 1);
+      console.log(`2. Multiplicación: ${multiplicacion}`);
+
+      const maximo = numeros.reduce((m, n) => (m > n ? m : n));
+      console.log(`3. Valor máximo: ${maximo}`);
+
+      const minimo = numeros.reduce((m, n) => (m < n ? m : n));
+      console.log(`4. Valor mínimo: ${minimo}`);
+
+      function imprimirArray(array) {
+        for (const ar of array) {
+          const texto = document.getElementById("contenido");
+          texto.innerHTML += `<li> ${ar} </li>`;
+        }
+      }
+
+      imprimirArray(numeros);
+    </script>
+  </body>
+</html>

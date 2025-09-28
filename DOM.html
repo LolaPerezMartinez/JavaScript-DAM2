@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Titulo general</h1>
+    <section id="seccion-01">
+      <h2 class="subtitulo">Subtitulo sección 1</h2>
+      <p>Párrafo 1 sección 1</p>
+      <ul class="lista">
+        <li class="item">Item 1 de sección 1</li>
+        <li class="item">Item 2 de sección 1</li>
+        <li class="item">Item 3 de sección 1</li>
+      </ul>
+      <p>Párrafo 2 sección 1</p>
+    </section>
+    <section id="seccion-02">
+      <h2 class="subtitulo">Subtitulo sección 2</h2>
+      <p>Párrafo 1 sección 2</p>
+      <ul class="lista">
+        <li class="item">Item 1 de sección 2</li>
+        <li class="item">Item 2 de sección 2</li>
+        <li class="item">Item 3 de sección 2</li>
+      </ul>
+      <p>Párrafo 2 sección 2</p>
+    </section>
+    <footer>
+      <p>Esto es el footer de la página</p>
+    </footer>
+
+    <script>
+      // MÉTODOS MODERNOS DE ACCESO: VÍA SELECTOR
+      // Primer elemento que coincide con el selector
+      console.log(`1. Primer elemento que coincide con el selector`);
+      const primerElemento = document.querySelector("li.item");
+      console.log(primerElemento.textContent);
+
+      //Seleccionar el primer <li> dentro de la lista
+      console.log("\n");
+      console.log(`2. Seleccionar el primer <li> dentro de la lista`);
+      const primerElementoLi = document.querySelector("ul.lista li");
+      console.log(primerElementoLi.textContent);
+
+      //El hijo ul de #seccion-01 
+      console.log("\n");
+      console.log(`3. El hijo ul de #seccion-01`);
+      const seccion01Ul = document.querySelector('#seccion-01 > ul');
+      console.log(seccion01Ul);
+
+      //El primer li de ul de #seccion-01 
+      console.log("\n");
+      console.log(`4. El primer li de ul de #seccion-01`);
+      const seccion01PrimerLiDeul = document.querySelector('#seccion-01 ul li:first-child');
+      console.log(seccion01PrimerLiDeul);
+      seccion01PrimerLiDeul.style.background = '#F2AEBB' ;
+
+      // #section-02 completa
+      console.log("\n");
+      console.log(`5. #section-02 completa`);
+      const seccion02 = document.querySelectorAll('#seccion-02');
+      seccion02.forEach(element => {console.log(element.innerHTML);});
+      
+      // #section-02 primer elemento
+      console.log("\n");
+      console.log(`6. section-02 primer elemento`);
+      const seccion02PrimerElemento = document.querySelector('#seccion-02');
+      console.log(seccion02PrimerElemento.innerHTML);
+      seccion02PrimerElemento.style.border = '1px solid blue';
+
+
+      //#section-02 primer elemento
+      console.log("\n");
+      console.log(`7. #section-02 primer elemento`);
+      const seccion02PrimerLi = document.querySelector('#seccion-02 .item');
+      console.log(seccion02PrimerLi.innerHTML);
+      seccion02PrimerLi.style.background = '#fff9c4';
+
+
+
+      // #section-02 .item
+      console.log("\n");
+      console.log(`8. #section-02 .item`);
+      const seccion02Item = document.querySelector('#seccion-02');
+      console.log(`- Print con .innerHTML ${seccion02Item.innerHTML}`);
+      console.log(`- Print con .textContent ${seccion02Item.textContent}`);
+      console.log(`- Print con .innerText ${seccion02Item.innerText}`);
+
+      // Todos los elementos que coinciden con el selector
+      // p
+      console.log("\n");
+      console.log(`9. Todos los elementos que coinciden con el selector p`);
+      const selectoresParrafos = document.querySelectorAll('p');
+      console.log(selectoresParrafos);
+      selectoresParrafos.forEach(parrafo => {
+        console.log(parrafo.innerHTML);
+        parrafo.style.background = '#EF7722';
+        });
+
+      // #section-02 .item
+      console.log("\n");
+      console.log(`10. Todos los elementos de #section-02 .item`);
+      const seccion02AllItem = document.querySelectorAll('#seccion-02 .item');
+      seccion02AllItem.forEach(elemento => {
+          console.log(elemento.textContent)
+          elemento.style.color = '#08CB00';
+      });
+
+      // Acceso a nodo padre del primer item de la sección 1
+      console.log("\n");
+      console.log(`11. Acceso a nodo padre del primer item de la sección 1`);
+      const seccion01PrimerItem = document.querySelector('#seccion-01 .item');
+      const nodoPadre = seccion01PrimerItem.parentElement;
+      console.log(nodoPadre.textContent);
+      nodoPadre.style.background = '#E43636';
+      
+
+      // Acceso a los nodos hijos de ul de la sección 1
+      console.log("\n");
+      console.log(`12. Acceso a los nodos hijos de ul de la sección 1`);
+      const hijosUl = document.querySelectorAll('#seccion-01 ul li');
+      console.log(hijosUl);
+      hijosUl.forEach(hijo => {
+        console.log(hijo.textContent);
+        hijo.style.border = '1px solid blue';
+      });
+
+      console.log("\n");
+      console.log(`12.1 Acceso a los nodos hijos de ul de la sección 1 de forma mas correcta`);
+      const ulSeccion01 = document.querySelector('#seccion-01 ul');
+      const hijosUlSeccion01 = ulSeccion01.children;
+      
+     for(hijo of hijosUlSeccion01){
+          console.log(hijo.textContent);
+     }
+
+      // Acceso a los nodos hermanos de ul del primer li de la sección 2
+      console.log("\n");
+      console.log(`13. Acceso a los nodos hermanos de ul del primer li de la sección 2`);
+      const primerLi = document.querySelector('#seccion-02 .item');
+      let hermano = primerLi.nextElementSibling;
+      
+      while(hermano != null){
+        console.log(hermano.textContent)
+        hermano.style.background = '#1B3C53';
+        hermano = hermano.nextElementSibling;
+
+      }
+
+      //console.log(hermano);
+    </script>
+  </body>
+</html>

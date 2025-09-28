@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2</title>
+</head>
+<style>
+    #titulo{
+        background-color: rgb(124, 231, 199);
+        padding: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 300 bold;
+        border-radius: 20px;
+    }
+</style>
+
+<body>
+        <h1 id="titulo">Objetos</h1>
+        <p id= "texto">Crear objetos</p>
+
+        <script>
+           const persona = {
+            nombre: 'Juan',
+            edad: 30,
+            saludar: function(){
+                return `Hola, soy ${this.nombre}`;
+            }
+            
+           }
+           console.log(persona);
+           console.log(persona.edad);
+           console.log(persona.saludar());
+           
+           console.log("\n");
+           function sumar(a= 4, b = 2){
+            return a + b;
+           }
+           console.log(`La suma da: `, sumar());
+
+           console.log("\n");
+           const multiplicar = (a = 2,b = 10) => a * b;
+           console.log(`La multiplicación da: `,multiplicar());
+
+           /*Si queremos poner una fecha*/
+           const ahora1 = Date();
+           const ahora2 = new Date();
+           console.log(`Ahora1:`, ahora1);
+           console.log(typeof ahora1);
+           console.log(`Ahora2:`, ahora2);
+           console.log(typeof ahora2);
+
+
+
+        </script>
+    
+</body>
+</html>

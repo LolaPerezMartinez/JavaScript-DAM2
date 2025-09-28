@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>003: Tipos de datos</title>
+    <style>
+      p {
+        padding: 5px 5px;
+        background-color: #eee;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>003: Tipos de datos</h1>
+    <div id="contenido"></div>
+    <script>
+      //Crear un array de arrays para imprimir la info similar
+
+      const datos = [
+        [ 10, 0],
+        [ -10, 0],
+        [ 10.5, 0],
+        [ -10.5, 0],
+        [ Infinity, 0],
+        [ true, 0],
+        [ undefined, 0],
+        [ null, 0],
+        [ 9007199254740991n, 0],
+        [ 0o343, 8],
+        [ 0b10001, 2],
+        [ 0x3fe21, 16]];
+
+
+      for (const dato of datos) {
+        mostrarInfo(dato[0], dato[1], dato[2]);
+      }
+      
+      /* for (const dato of datosPlus) {
+        mostrarInfoPlus(dato[0], dato[1], dato[2]);
+      } */
+
+      //Fusionar las dos funciones en 1
+      function mostrarInfo(valor, base) {
+        //base 8,16, 2 muestro un mensaje
+        //base distinta muestro otro mensaje
+
+        const label = document.getElementById('contenido');
+
+        if(base === 8 || base === 16 || base ===2 ){
+            let prefijo = base === 8 ? '0o' : base === 16 ? '0x' : base === 2 ? '0b' : '';
+            label.innerHTML += ` <p>${prefijo + valor.toString(base)} es en decimal ${valor} 
+                                y se corresponde con el tipo ${typeof valor}</p>`;
+        }else{
+             label.innerHTML += `<p>${valor} se corresponde con el tipo ${typeof valor}</p>`;
+        }
+      };
+
+      /* //Crear una función para no repetir código
+      function mostrarInfo(id, valor) {
+        const label = document.getElementById(id);
+        label.innerHTML = `${valor} se corresponde con el tipo ${typeof valor}`;
+      }
+      mostrarInfo("entero-positivo", 10);
+
+
+      //Una funcion para mostrarInfo mas compleja
+      function mostrarInfoPlus(id, valor, base) {
+        const label = document.getElementById(id);
+        let prefijo = base === 8 ? '0o' : base === 16 ? '0x' : base === 2 ? '0b' : '';
+        label.innerHTML = ` ${prefijo + valor.toString(base)} es en decimal ${valor} 
+                            y se corresponde con el tipo ${typeof valor}`;
+      } */
+      
+
+      //.innerHTML cambia todo lo que hay en el html
+      // entero-positivo
+      /* const enteroPositivo = document.getElementById("entero-positivo");
+      let miEntero = 10;
+      enteroPositivo.innerHTML = `${miEntero} se corresponde con el tipo ${typeof miEntero}`;
+
+      // entero-negativo
+      const enteroNegativo = document.getElementById("entero-negativo");
+      enteroNegativo.innerHTML = `${-miEntero} se corresponde con el tipo ${typeof -miEntero}`;
+
+      // entero-positivo
+      mostrarInfo("decimal-positivo", 10.5);
+      const decimalPositivo = document.getElementById("decimal-positivo");
+      let miDecimal = 10.5;
+      decimalPositivo.innerHTML = `${miEntero} se corresponde con el tipo ${typeof miDecimal}`;
+ */
+      // entero-negativo
+      /* const decimalNegativo = document.getElementById("decimal-negativo");
+      decimalNegativo.innerHTML = `${-miDecimal} se corresponde con el tipo ${typeof -miDecimal}`;
+
+      // octal
+      const octal = document.getElementById("octal");
+      let miOctal = 0o343;
+      octal.innerHTML = ` 0o${miOctal.toString(
+        8
+      )} es en decimal ${miOctal} y se corresponde con el tipo ${typeof miOctal}`;
+
+      // binario
+      const binario = document.getElementById("binario");
+      let miBinario = 0b10001;
+      binario.innerHTML = ` 0b${miBinario.toString(
+        2
+      )} es en decimal ${miBinario} y se corresponde con el tipo ${typeof miBinario}`;
+
+      // hexadecimal
+      const hexa = document.getElementById("hexa");
+      let miHexadecimal = 0x3fe21;
+      hexa.innerHTML = ` 0x${miHexadecimal.toString(
+        16
+      )} es en decimal ${miHexadecimal} y se corresponde con el tipo ${typeof miHexadecimal}`;
+
+      // infinito
+      const infinito = document.getElementById("infinito");
+      let miInfinito = Infinity;
+      infinito.innerHTML = ` ${miInfinito} se corresponde con el tipo ${typeof miInfinito}`;
+
+      // no-es-un-numero
+      const noEsUnNumero = document.getElementById("no-es-un-numero");
+      let miNoEsUnNumero = NaN;
+      noEsUnNumero.innerHTML = ` ${miNoEsUnNumero} se corresponde con el tipo ${typeof miNoEsUnNumero}`;
+
+      // boolean
+      const booleano = document.getElementById("booleano");
+      let miBooleano = true;
+      booleano.innerHTML = ` ${miBooleano} se corresponde con el tipo ${typeof miBooleano}`;
+
+      // sin definir
+      const sinDefinir = document.getElementById("sin-definir");
+      let miSinDefinir;
+      sinDefinir.innerHTML = ` ${miSinDefinir} se corresponde con el tipo ${typeof miSinDefinir}`;
+
+      // nulo
+      const nulo = document.getElementById("nulo");
+      let miNulo = null;
+      nulo.innerHTML = ` ${miNulo} se corresponde con el tipo ${typeof miNulo}`;
+
+      // gran número
+      const granNumero = document.getElementById("gran-numero");
+      let miGranNumero = 9007199254740991n; // BigInt (número grande)
+      granNumero.innerHTML = ` ${miGranNumero} se corresponde con el tipo ${typeof miGranNumero}`; */
+    </script>
+  </body>
+</html>

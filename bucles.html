@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bucles</title>
+  </head>
+  <body>
+    <script>
+      // Ejemplo de bucle for que muestra los números del 1 al 5
+      console.log(`Bucle for:`);
+      for (let i = 1; i <= 5; i++) {
+        console.log(i);
+      }
+
+      console.log("\n");
+
+      // Ejemplo de bucle for of que muestra los números del 1 al 5
+      console.log(`Bucle for of`);
+      const numeros = [1, 2, 3, 4, 5];
+      for (const numero of numeros) {
+        console.log(numero);
+      }
+
+      console.log("\n");
+      console.log(`Bucle for of con índice y valor`);
+      for(const [indice, numero] of numeros.entries()){
+        console.log(`Indice ${indice}. Valor: ${numero}`);
+      }
+
+      // Ejemplo de bucle for...in para recorrer las claves del objeto
+      console.log("\n");
+      console.log(`Bucle for...in para recorrer las claves del objeto`);
+      const persona = {nombre:"Migle", edad: 21, ciudad: 'Sevilla'};
+      for(const clave in persona){
+        console.log(`Clave: ${clave}. Valor: ${persona[clave]}`);
+      }
+
+      console.log("\n");
+      console.log(`El bucle for...of para recorrer las claves en objetos`);
+      const persona2 = {nombre: "Ana", edad: 28, ciudad: "Tenerife"};
+      for(const clave of Object.keys(persona2)){
+        console.log(`Clave: ${clave}. Valor: ${persona2[clave]}`);
+      }
+
+      console.log("\n");
+      console.log(`El bucle for...of para recorrer los valores en objetos`);
+      for(const valor of Object.values(persona)){
+          console.log(`Valor: ${valor}`);
+      }
+
+      console.log("\n");
+      console.log(`El bucle for...of para recorrer las claves y valores`);
+      for(const [clave, valor] of Object.entries(persona)){
+         console.log(`Clave: ${clave}. Valor: ${valor}`);
+      }
+
+      console.log("\n");
+      console.log(`El bucle forEach con Object.entries()`);
+      Object.entries(persona).forEach(([clave, valor]) => {console.log(`Clave: ${clave}. Valor: ${valor}`);});
+
+      console.log("\n");
+      console.log(`El bucle while se ejecuta mientras una condición sea verdadera, sin un contador predefinido.`);
+      let limite = 0;
+      let numero = 1;
+      while(limite < 5 ){
+        console.log(numero++);
+        limite++;
+      }
+
+      console.log("\n");
+      console.log(`El bucle do...while garantiza al menos una ejecución del código antes de verificar la condición.`);
+      let conteo = 1;
+      let limit = 5;
+      do{
+        console.log(conteo);
+        conteo++;
+      }while(conteo < 5);
+
+
+
+
+    </script>
+  </body>
+</html>
