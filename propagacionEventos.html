@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #inner {
+            border: 1px solid red;
+            margin: 10px;
+        }
+        #outer {
+            border: 1px solid blue;
+            margin: 10px;
+        }
+        #button {
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">
+          <button id="button">Click</button>
+        </div>
+      </div>
+      <script>
+// Seleccionar elementos
+const outer = document.getElementById('outer');
+const inner = document.getElementById('inner');
+const button = document.getElementById('button');
+
+// Fase de burbujeo (predeterminado)
+outer.addEventListener('click', () => console.log('Outer - Burbujeo (orden natural)'));
+inner.addEventListener('click', () => console.log('Inner - Burbujeo (orden natural)'));
+button.addEventListener('click', () => console.log('Button - Burbujeo (orden natural)'));
+
+// Fase de captura (tercer parámetro true)
+outer.addEventListener('click', () => console.log('Outer - Captura (orden inverso)'), true);
+inner.addEventListener('click', () => console.log('Inner - Captura (orden inverso)'), true);
+button.addEventListener('click', () => console.log('Button - Captura (orden inverso)'), true);
+
+
+//Detención de la propagación
+outer.addEventListener('click', (e) => {
+    console.log('Outer - Stop');
+    e.stopPropagation();
+});
+button.addEventListener('click', (e) => {
+    console.log('Button - Stop');
+    e.stopPropagation();
+});
+inner.addEventListener('click', (e) => {
+    console.log('Inner - Stop');
+    e.stopPropagation();
+});
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colecciones en JS</title>
+</head>
+<body>
+    <h1>Colecciones en JavaScript</h1>
+
+    <section id="uno">
+        <h2>Colecciones: introducción</h2>
+        <p>
+            Son estructuras que permiten almacenar, organizar y manipular datos.
+        </p>
+      
+    </section>
+
+    <!--<section id="dos">
+        <h2>Array: resumen</h2>
+    </section>-->
+
+    <section id="entrenamiento">
+
+        <h2>Entrenamiento: diccionario de programación con Map</h2>
+        <p>Crear un diccionario simple de términos de programación utilizando Map para almacenar pares de término-definición.</p>
+
+
+    </section>
+    <script>
+    const diccionarioProgramacion = new Map();  
+    diccionarioProgramacion.set('Algoritmo', 'Conjunto de pasos ordenados y finitos que permiten resolver un problema o realizar una tarea específica de manera lógica y estructurada.');
+
+    diccionarioProgramacion.set('Variable',
+    'Espacio en memoria que se utiliza para guardar información que puede cambiar durante la ejecución de un    programa.');
+
+    diccionarioProgramacion.set('Clase', 'Plantilla que define las características y comportamientos de un objeto en la programación orientada a objetos.');
+
+    diccionarioProgramacion.set('Función', 'Bloque de código reutilizable que realiza una acción específica cuando se le llama.');
+
+    diccionarioProgramacion.set('Objeto','Entidad que agrupa datos (propiedades) y comportamientos (métodos), permitiendo modelar elementos del mundo real dentro de un programa.');
+    
+    const training = document.querySelector('#entrenamiento');
+    
+    training.innerHTML += `<h2> - Operaciones básicas</h2>`;
+    training.innerHTML += `<h3>1.Consulta la definición de un término específico.</h3>`;
+    
+    const definicion = diccionarioProgramacion.get('Objeto');
+    const defP = document.createElement('p');
+    defP.innerText = `Objeto: ${definicion}`;
+    training.append(defP);
+
+    training.innerHTML += `<h3> 2. Añade un nuevo término al diccionario.`;
+
+    const nuevoTermino = diccionarioProgramacion.set('Compilador', 
+    'Programa que traduce el código fuente escrito por el programador en un lenguaje de alto nivel (como Java o C++) a un lenguaje que la máquina pueda entender, normalmente código máquina o bytecode.');
+    const introP = document.createElement('p');
+    //introP.innerText = training.append(diccionarioProgramacion.get("Compilador"));
+    introP.innerText = `Compilador: ${diccionarioProgramacion.get('Compilador')}`;
+    training.append(introP);
+
+    training.innerHTML += `<h3> 3. Actualiza la definición de un término existente.<h3>`;
+
+    const cambiarDef = diccionarioProgramacion.set('Compilador', 'otra definicion');
+    const diccio = document.createElement('p');
+    diccio.innerText = diccionarioProgramacion;
+    console.log(diccionarioProgramacion);
+    
+    for(const [key, valor] of diccionarioProgramacion.entries()){
+        training.append(`${key}: ${valor}`);
+        training.innerHTML += '<br>';
+    }
+    
+    training.innerHTML += `<h3> 4. Elimina un término del diccionario.</h3>`;
+    diccionarioProgramacion.delete('Compilador');
+
+    training.innerHTML += `<p style="font-weight:bold;"> 4.1 for...of con map.keys().<p>`;
+    for(const key of diccionarioProgramacion.keys()){
+        const pDef = document.createElement('p');
+        pDef.innerText = `${key}: ${diccionarioProgramacion.get(key)}`;
+        training.appendChild(pDef);
+
+    }
+    
+    training.innerHTML += `<p style="font-weight:bold;"> 4.2 for...of con map.<p>`;
+    for(const nombre of diccionarioProgramacion){
+        const parrafo = document.createElement('p');
+        parrafo.innerText = `${nombre}`;
+        training.appendChild(parrafo);
+    }
+
+    function saltoLinea(){
+        training.innerHTML += '<br>'
+    }
+    training.innerHTML += `<h3> 5 .Verifica si un término específico existe en el diccionario.</h3>`;
+    const parr = document.createElement('p');
+    training.append(`1. ¿El elemento 'Array' existe en el diccionario?: ${diccionarioProgramacion.has('Array') == true ? 'Sí' : 'No'}`);
+    
+    saltoLinea();
+
+    const parra = document.createElement('p');
+    training.append(`2. ¿El elemento 'Clase' existe en el diccionario? : ${diccionarioProgramacion.has('Clase') == true ? 'Sí' : 'No'}`);
+
+   
+    training.innerHTML += `<h2> - Exploración del diccionario</h2>`;
+    training.innerHTML += `<h3>1. Muestra todos los términos (claves) disponibles en el diccionario.</h3>`;
+    let contador = 1;
+
+    for(const key of diccionarioProgramacion.keys()){
+        const line = document.createElement('p');
+        line.innerText = `${contador++}. ${key}`;
+        training.append(line);
+    }
+
+    training.innerHTML += `<h3>2. Muestra todas las definiciones (valores) en el diccionario..</h3>`;
+    contador = 1;
+
+    for(const valor of diccionarioProgramacion.values()){
+        const l = document.createElement('p');
+        l.innerText = `${contador++}. ${valor}`;
+        training.append(l);
+    }
+
+    training.innerHTML += `<h3>3. Muestra todos los pares término-definición.</h3>`;
+    contador = 1;
+    for(const [key, val] of diccionarioProgramacion.entries()){
+        const lin = document.createElement('p');
+        lin.innerText = `${contador++}.${key}: ${val}`;
+        training.append(lin);
+    }
+
+    training.innerHTML += `<h3>4. Cuenta cuántos términos hay en el diccionario. </h3>`;
+    contador = 0;
+    const pR = document.createElement('p');
+
+    for(const key of diccionarioProgramacion){
+        contador++;
+    }
+    
+    pR.innerText = `El numero de terminos del diccionario es ${contador}.`;
+    training.append(pR);
+
+    </script>
+    
+</body>
+</html>
