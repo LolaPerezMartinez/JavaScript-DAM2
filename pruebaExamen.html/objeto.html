@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+    <h1>Objetos Avanzados</h1>
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWViYWdweHBhMGc1YnpjdmtkNDNoMnJxaWt0bndzdm13YXcxZWY2eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nj0XPti0kpg5i/giphy.gif">
+    <script>
+    //1. Creación literal
+        const persona1 = {
+            nombre: 'Migle',
+            edad : '21',
+            hobbies: new Array('programar', 'leer', 'pasear'),
+            saludar: function(){
+                return `¡Hola! soy ${this.nombre}`
+            }
+
+        }
+
+    console.log("\nIterando a la persona con for...in");
+    for(const key in persona1){
+        console.log(`Atributo: ${key}. Valor: ${persona1[key]}`);
+    }
+
+    console.log("\nFunción saludar");
+    console.log(persona1.saludar());
+
+    console.log("\nIterando a la persona con Object.values() y foreach");
+    Object.values(persona1).forEach (valor => {
+        if(typeof valor == 'function'){
+            console.log(valor());
+        }else{
+            console.log(valor);
+        }
+
+    });
+
+    console.log("\nIterando a la persona con Object.entries() y foreach");
+    Object.entries(persona1).forEach(([key, valor]) => console.log(`Clave: ${key}. Valor: ${valor}`));
+
+    //2. Creación mediante objeto
+    const p2 = new Object();
+    p2.nombre = 'Julia';
+    p2.edad = 21;
+    p2.colorPelo = 'negro';
+    p2.hobbies = new Array('correr', ' leer', ' bucear');
+
+    console.log("\nPersona Julia");
+    for(const [key, valor] of Object.entries(p2)){
+        console.log(`Key: ${key.toUpperCase()}. Valor: ${valor}`);
+    }
+
+    console.log("\nCambiar el nombre de Julia a Raquel");
+    p2.nombre = 'Raquel'
+    for(const key of Object.keys(p2)){
+        console.log(`Clave: ${key}. Valor: ${p2[key]}`);
+    }
+
+    console.log("\nBorrar a Migle la key saludar");
+    delete persona1.saludar;
+    for(const key in persona1){
+        console.log(`Clave: ${key}. Valor: ${persona1[key]}`);
+    }
+
+    //3. Creación con funcion constructora
+    function Persona(nombre, edad){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.saludar = function(){
+            return `Hola! soy ${this.nombre}`;
+        }
+    }
+
+    console.log("\nCreacion de Ana con constructor");
+    const p3 = new Persona('Ana', 28);
+    for(const key in p3){
+        console.log(`Clave: ${key}. Valor ${p3[key]}`);
+    }
+
+    console.log(p3.saludar());
+    
+    console.log("\nCreacion de Carlos con factory function");
+    function crearPersona(nombre, edad){
+        return{
+            nombre,
+            edad,
+            saludar(){
+                return `Hola! Mi nombre es ${this.nombre}`
+            }
+        }
+    }
+
+   const p4 = crearPersona('Carlos', 34);
+   for(const key in p4){
+    console.log(`Clave: ${key}. Valor: ${p4[key]}`);
+   }
+
+   const marcaMovil = 'XIAOMI';
+   const modeloMovil = 'Lite 10'
+   const movil = new Object();
+   movil.marca = `${marcaMovil}`;
+   movil.modelo = `${modeloMovil}`;
+
+   console.log("\nCreacion de movil con propiedades calculadas");
+   for(const [key, values] of Object.entries(movil)){
+        console.log(`Clave: ${key}. Valor: ${values}`);
+   }
+
+   //Calculadora
+   const calculadora = {
+    a:0,
+    b:0,
+
+    asignar(a, b){
+        this.a = a;
+        this.b = b;
+    },
+
+    sumar(){
+        return this.a + this.b
+    },
+
+    restar(){
+        return this.a - this.b
+    },
+
+    multiplicar(){
+        return this.a * this.b
+    }
+   };
+
+    calculadora.asignar(2,4);
+    console.log(calculadora.multiplicar());       
+
+    </script>
+    
+</body>
+</html>

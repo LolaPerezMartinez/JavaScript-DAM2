@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evento 1</title>
+    <style>
+      body {
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      h1 {
+        margin-bottom: 30px;
+      }
+      #infoColor {
+        margin-top: 15px;
+      }
+      #cambiar-color {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 18px;
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 25px;
+        padding: 12px 25px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      /* Efecto al pasar el ratón */
+      #cambiar-color:hover {
+        background-color: #333;
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Efecto al hacer clic */
+      #cambiar-color:active {
+        transform: scale(0.97);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cambiar color de fondo</h1>
+    <button id="cambiar-color">Cambiar fondo</button>
+    <div id="infoColor"></div>
+
+    <script>
+      const boton = document.querySelector("#cambiar-color");
+      const infoColor = document.querySelector("#infoColor");
+
+      boton.addEventListener("click", () => {
+        const colorGenerado = numeroEnHexadecimal();
+        document.body.style.backgroundColor = colorGenerado;
+        infoColor.innerText = `El color actual es ${colorGenerado}`;
+      });
+
+      function numeroEnHexadecimal() {
+        let randomR = Math.floor(Math.random() * 256);
+        let randomG = Math.floor(Math.random() * 256);
+        let randomB = Math.floor(Math.random() * 256);
+        let colorRandom = `#${randomR.toString(16)}${randomG.toString(
+          16
+        )}${randomB.toString(16)}`;
+
+        return colorRandom;
+      }
+    </script>
+  </body>
+</html>

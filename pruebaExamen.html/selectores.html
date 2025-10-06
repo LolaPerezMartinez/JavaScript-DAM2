@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Titulo general</h1>
+    <section id="seccion-01">
+        <h2 class="subtitulo">Subtitulo sección 1</h2>
+        <p>Párrafo 1 sección 1</p>
+        <ul class="lista">
+            <li class="item">Item 1 de sección 1</li>
+            <li class="item">Item 2 de sección 1</li>
+            <li class="item">Item 3 de sección 1</li>
+        </ul>
+        <p>Párrafo 2 sección 1</p>
+    </section>
+    <section id="seccion-02">
+        <h2 class="subtitulo">Subtitulo sección 2</h2>
+        <p>Párrafo 1 sección 2</p>
+        <ul class="lista">
+            <li class="item">Item 1 de sección 2</li>
+            <li class="item">Item 2 de sección 2</li>
+            <li class="item">Item 3 de sección 2</li>
+        </ul>
+        <p>Párrafo 2 sección 2</p>
+    </section>
+    <footer>
+        <p>Esto es el footer de la página</p>
+    </footer>
+
+    <script>
+
+        // MÉTODOS MODERNOS DE ACCESO: VÍA SELECTOR
+
+        // Primer elemento que coincide con el selector
+        // #section-02 
+        const e1 = document.querySelector('#seccion-02');
+        console.log(`Primer elemento que coincide con el selector seccion-02: ${e1.innerText}`)
+
+        // li
+        const e2 = document.querySelector('#seccion-02 li');
+        console.log(`Primer elemento de section-02 li: ${e2.innerText}`);
+      
+
+        // #section-02 .item 
+        console.log("\nElementos de #section-02 .item");
+        const e3 = document.querySelectorAll('#seccion-02 .item');
+
+        console.log("\ncon for..of");
+        for(const indice of e3){
+            console.log(indice.innerText);
+
+        }
+        console.log("\ncon for..each");
+        e3.forEach(n => {console.log(n.innerHTML)});
+       
+
+        // Todos los elementos que coinciden con el selector p
+        const e4 = document.querySelectorAll('p');
+
+       for (let i = 0; i < e4.length; i++) {
+             if(i % 2 == 0){
+                e4[i].style.color = 'red'
+             }else{
+                e4[i].style.color = 'green'
+             }
+       }
+
+       /* e4.forEach(p =>{
+           p.style.color = 'red'
+        }
+        );*/
+       
+
+        // Acceso a nodo padre del primer item de la sección 1
+        console.log("\nPrimer elemento item de la seccion 1");
+        const e5 = document.querySelector('#seccion-01 .item');
+        console.log(e5.innerText);
+
+        console.log("\nPadre del primer elemento item de la seccion 1");
+        const padre = e5.parentElement;
+        console.log(padre.innerText);
+       
+
+        // Acceso a los nodos hijos de ul de la sección 2
+       console.log("\nHijos de ul de la sección 2");
+       const e6 = document.querySelector('#seccion-02 ul');
+       const hijos = e6.children;
+       console.log(hijos);
+       for(const hijo of hijos){
+            console.log(hijo.innerText);
+       }
+
+        // Acceso a los nodos hermanos de ul del primer li de la sección 2
+        console.log("\nNodos hermanos de ul del primer li de la sección 2");
+        const e7 = document.querySelector('#seccion-02 ul li');
+        let hermano = e7.nextElementSibling;
+        while(hermano != null){
+            console.log(hermano);
+            hermano = hermano.nextElementSibling;
+        }
+        //console.log(hermano);
+
+        
+        
+    </script>
+    
+</body>
+</html>

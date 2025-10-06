@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagación</title>
+    <style>
+        #externo{
+            border: 1px solid red;
+            margin: 10px;
+           
+        }
+        #medio{
+            border: 1px solid blue;
+            margin: 10px;
+        }
+        #boton{
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Propagación de eventos</h1>
+    <div id="externo">
+        <div id="medio">
+            <button id="boton">Click</button>
+        </div>
+
+    </div>
+
+    <script>
+        const boton = document.getElementById('boton');
+        const medio = document.getElementById('medio');
+        const externo = document.getElementById('externo');
+
+        boton.addEventListener('click', () => {console.log('click- fase burbujeo')});
+        medio.addEventListener('click', () => {console.log('medio- fase burbujeo')});
+        externo.addEventListener('click', () => {console.log('externo- fase burbujeo')});
+
+        boton.addEventListener('click', () => {console.log('click- fase captura')}, true);
+        medio.addEventListener('click', () => {console.log('medio- fase captura')}, true);
+        externo.addEventListener('click', () => {console.log('externo- fase captura')}, true);
+
+        //pertenece a la fase de buebujeo al no tener true
+       // boton.addEventListener('click', (event) =>{console.log('Stop propagación de boton'); event.stopPropagation()});
+
+        medio.addEventListener('click', (event) =>{console.log('Stop propagación de medio'); event.stopPropagation()});
+
+
+    </script>
+</body>
+</html>

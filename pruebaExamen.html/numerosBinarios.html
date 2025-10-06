@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binarios</title>
+    <style>
+  /* 🌿 Fondo general */
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(180deg, #24d6ee, #f1f8e9); /* degradado suave azul-verde */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 🧭 Títulos */
+  h1 {
+    color: #004d40;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    color: #00695c;
+    margin-top: 0;
+    font-weight: normal;
+  }
+
+  /* 💡 Caja del número binario */
+  #numero {
+    background-color: white;
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-size: 1.2em;
+    color: #004d40;
+    margin: 25px 0;
+  }
+
+  /* 🧮 Contenedor de botones */
+  #botones {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  /* 🔘 Estilo general de los botones */
+  button {
+    border: none;
+    border-radius: 12px;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  /* 🔵 Botón 0 */
+  #cero {
+    background-color: #e66e9c;
+  }
+  #cero:hover {
+    background-color: #e71d6b;
+    transform: scale(1.05);
+  }
+
+  /* 🟢 Botón 1 */
+  #uno {
+    background-color: #e66e9c;
+  }
+  #uno:hover {
+    background-color: #e71d6b;
+    transform: scale(1.05);
+  }
+  #reset {
+    background-color: #e66e9c;
+  }
+  #reset:hover {
+    background-color: #e71d6b;
+    transform: scale(1.05);
+  }
+
+  /* ⚡ Efecto al hacer clic */
+  button:active {
+    transform: scale(0.97);
+  }
+
+
+    </style>
+</head>
+<body>
+    <h1>Numeros Binarios</h1>
+    <h2>Crea un número binario</h2>
+    <h3 id ="numero">Estado inicial: </h3>
+    <div id="botones">
+        <button id="cero"> 0 </button>
+        <button id="reset">Eliminar</button>
+        <button id="uno"> 1 </button>
+    </div>
+
+    
+
+    <script>
+        const numero = document.querySelector("#numero");
+        const botonCero = document.querySelector('#cero');
+        const botonUno = document.querySelector('#uno');
+        const botonReset = document.querySelector('#reset');
+
+        let numeroBin = new Array();
+
+        function insertarNumero(){
+            numero.innerText = `Numero : ${numeroBin.join('')}`;
+        }
+
+        botonUno.addEventListener('click', () =>{
+            numeroBin.push(1);
+            insertarNumero();
+
+        });
+
+        botonCero.addEventListener('click', () =>{
+            numeroBin.push(0);
+            insertarNumero();
+        })
+
+        reset.addEventListener('click', () =>{
+            numeroBin.pop();
+            insertarNumero();
+        })
+
+
+       
+
+    </script>
+</body>
+</html>

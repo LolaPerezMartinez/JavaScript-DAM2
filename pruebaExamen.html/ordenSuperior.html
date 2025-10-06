@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones de orden superior</title>
+</head>
+<body>
+    <h1>Calculadora de descuentos</h1>
+
+    <script>
+        function aplicarDescuento(calcularPrecio, precioBase, porcentajeDescuento){
+            return calcularPrecio(precioBase, porcentajeDescuento);
+        }
+
+        function precioDescuentoSimple(precioBase, porcentajeDescuento){
+            return precioBase - (precioBase * porcentajeDescuento / 100);
+        }
+
+        function precioConDescuentoDoble(precioBase, porcentajeDescuento){
+            const primerDescuento = precioBase - (precioBase * porcentajeDescuento / 100)
+            return primerDescuento - (primerDescuento * porcentajeDescuento / 100);
+        }
+
+        console.log(`El precio de 100€ con un descuento del 10% usando descuento simple es ${aplicarDescuento(precioDescuentoSimple, 100, 10)}.`);
+        console.log(`El precio de 100€ con un descuento del 10% usando descuento doble es ${aplicarDescuento(precioConDescuentoDoble, 100, 10)}.`);
+
+    </script>
+</body>
+</html> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number & BigInt</title>
+</head>
+<body>
+    <h1>Operaciones con Number y BigInt</h1>
+    <script>
+        function crearTitulo(titulo){
+            const t = document.createElement('h3');
+            t.innerText = `${titulo}`;
+            document.body.append(t);
+        }
+
+        crearTitulo('Number + bigInt = Number');
+
+        let number = 9897876;
+        let bigI = 1263479n;
+
+        const sumaNumber = number + Number(bigI);
+        console.log(sumaNumber);
+
+        const p1 = document.createElement('p');
+        p1.innerText = `La suma en Number es : ${sumaNumber}`;
+        document.body.append(p1);
+
+        crearTitulo('Number + bigInt = BgInt');
+        const sumaBigInt = BigInt(number) + bigI;
+
+        const p2 = document.createElement('p');
+        p2.innerText = `La suma en BigInt es : ${sumaNumber}`;
+        document.body.append(p2);
+
+    </script>
+    
+</body>
+</html>

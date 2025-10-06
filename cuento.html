@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colecciones</title>
+  </head>
+  <body>
+    <h1>Entrenamiento: colecciones para un cuento</h1>
+  </body>
+</html>
+
+<script>
+  // Función para obtener el cuento
+  function obtenerCuento() {
+    return `El cuento de la lechera. Una joven lechera llevaba en la cabeza un cubo de leche que acababa de ordeñar. Caminaba con paso ligero pensando en lo que haría con el dinero cuando vendiera la leche. "Compraré huevos", pensó la lechera, "y cuando los pollitos crezcan, venderé los pollos.
+Con ese dinero podré comprar un vestido nuevo para lucirlo en la fiesta del pueblo. Seguro que cuando me vean con él, todos los jóvenes me mirarán y podré elegir al que más me guste."
+Pensando en esto, la lechera comenzó a dar saltos de alegría. El cubo se cayó, y toda la leche se derramó por el suelo. Sin leche, sin huevos, sin pollos, sin vestido y sin pretendientes. 
+La lechera aprendió que no debemos contar con algo antes de tenerlo. Durante el camino de vuelta, la lechera lamentó lo ocurrido, pero luego pensó que lo mejor era seguir adelante con optimismo.
+El fracaso de sus planes la hizo reflexionar y ser más precavida en el futuro. Con el tiempo, la lechera prosperó gracias a su esfuerzo y perseverancia, aunque nunca volvió a fantasear con lo que aún no tenía.`;
+  }
+
+  function crearTitulo(titulo) {
+    let p = document.createElement("h2");
+    p.innerText = `${titulo}`;
+    document.body.append(p);
+  }
+
+  function crearSubtitulo(subtitulo) {
+    let p1 = document.createElement("h3");
+    p1.innerText = `${subtitulo}`;
+    document.body.append(p1);
+  }
+
+  crearTitulo("1. Implementa la función devuelvePalabras(texto) donde:");
+  crearSubtitulo("- Elimines los caracteres ., , y saltos de línea del texto.");
+  crearSubtitulo("- Un array con todas las palabras del cuento.");
+
+  const cuento = obtenerCuento();
+
+  function devuelvePalabras(texto) {
+    const parrafo = texto.replaceAll(/[.,\n"]/g, " ");
+    const arrayTexto = parrafo.split(" ");
+    const textoSinEspacios = arrayTexto.filter((palabra) => palabra !== "");
+
+    return textoSinEspacios;
+  }
+
+  const cuentoFinal = devuelvePalabras(cuento);
+  const p1 = document.createElement("p");
+  p1.innerText = cuentoFinal;
+  document.body.append(p1);
+
+  crearTitulo("2. Implementa la función arrayPalabras(palabras) donde:");
+  crearSubtitulo(
+    "Se impriman todas las palabras en el formato [palabra1][palabra2][palabra3]..."
+  );
+  crearSubtitulo("Se muestre el total de palabras en el array.");
+
+  const p2 = document.createElement("p");
+  function arrayPalabras(palabras) {
+    for (const palabra of palabras) {
+      p2.innerText += `[${palabra}]`;
+      document.body.append(p2);
+    }
+    document.body.append(
+      `El numero de palabras del cuento es de ${palabras.length}.`
+    );
+  }
+  arrayPalabras(cuentoFinal);
+
+  crearTitulo(`3. Implementa la función arrayListPalabras(palabras) donde:`);
+  crearSubtitulo(
+    "- Se impriman las primeras 5 palabras en el formato indicado."
+  );
+  crearSubtitulo("- Se muestre el total de palabras.");
+
+  crearSubtitulo("ArrayList de palabras\n-------------------------------");
+  
+  function ArrayListPalabras(palabras) {
+    const p = document.createElement("p");
+    for (let i = 0; i < palabras.length; i++) {
+      if (i < 5) {
+        p.innerText += `[${palabras[i]}]`;
+      }
+    }
+    document.body.append(p);
+    document.body.append(
+      `El numero de palabras del cuento es de ${palabras.length}.`
+    );
+  }
+  ArrayListPalabras(cuentoFinal);
+
+  crearTitulo('Implementa la función hashSetPalabras(palabras) donde:');
+  crearSubtitulo("- Se utilice un `Set` para almacenar las palabras únicas. \n- Se muestren las primeras 6 palabras únicas separadas por espacios.\n- Se indique el total de palabras únicas.");
+
+  crearSubtitulo("Hashset de palabras\n----------------------------");
+ 
+  let hashSetCuento = new Set();
+  function hashSetPalabras(palabras){
+    for(const palabra of palabras){
+        hashSetCuento.add(palabra);
+        if(hashSetCuento.size <= 5){
+            document.body.append(` ${palabra} `);
+        }
+    }
+}
+    hashSetPalabras(cuentoFinal);
+    document.body.innerHTML += `<br>`;
+    document.body.append(`El numero de palabras del cuento es de ${hashSetCuento.size}.`);
+
+
+</script>

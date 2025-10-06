@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creación de objetos</title>
+</head>
+<body>
+    <h1>Objetos con Factory Functions</h1>
+    <script>
+       console.log("\n1. Propiedades Calculadas");
+       const lengua = 'inglesa';
+        
+       const salida = {
+        [`Saludo_${lengua}`]: 'Hello',
+        [`Despedida_${lengua}`]: 'Goodbye'
+       }
+        console.log(`El saludo en lengua ${lengua} es ${salida.Saludo_inglesa}`);
+        console.log(`El saludo en lengua ${lengua} es ${salida.Despedida_inglesa}`);
+        
+        console.log("\n1.1 Propiedades Calculadas");
+        const idioma = 'española';
+    
+        const mensaje = {
+            [`Saludo_${idioma}`]: 'Hola',
+            [`Despedida_${idioma}`]: 'Adiós'
+            
+        };
+
+        console.log(`El saludo en lengua ${idioma} es: ${mensaje.Saludo_es}`);
+        console.log(`La despedida en lengua ${idioma} es: ${mensaje.Despedida_es}`);
+
+
+        console.log("\n2. Creacion de un coche");
+        function crearCoche(marca, modelo){
+            return {
+                marca,
+                modelo,
+    
+                descripcion(){
+                    return `Coche de marca ${this.marca} y modelo ${this.modelo}`
+                }
+            }
+        }
+
+        const c1 = crearCoche('Toyota', 'RAV-4');
+        for(const key in c1){
+            console.log(key, c1[key]);
+        }
+
+        console.log(c1.descripcion());
+
+
+
+        
+        
+    </script>
+</body>
+</html>
