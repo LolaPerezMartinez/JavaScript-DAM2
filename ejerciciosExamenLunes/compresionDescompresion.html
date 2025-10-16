@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread and Rest</title>
+
+</head>
+<body>
+   <h1>Trabajando con descompresión y compresión</h1>
+   <script>
+    console.log("\nNuevo Array con Spread (descompresión)");
+    const numeros = [10, 20, 30];
+
+    const nuevoArray = [0, ...numeros, 40, 50];
+    console.log(nuevoArray);
+
+    console.log("\nSumar todo con Rest (compresión) y bucle");
+    let suma = 0;
+
+    function sumarTodos(...numbers){
+        for(const number of numbers){
+            suma += number;
+        }
+        return suma;
+    }
+    console.log(sumarTodos(5, 10, 15, 20));
+
+    console.log("\nSumar todo con Rest (compresión) y reduce");
+    console.log(numeros.reduce((accum, n) => accum + n, 0));
+    
+   </script>
+    
+</body>
+</html>

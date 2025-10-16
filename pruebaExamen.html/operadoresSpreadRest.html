@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread y Rest</title>
+  </head>
+  <body>
+    <h1>Spread y Rest</h1>
+    <h2>Spread</h2>
+    <p>
+      Se utiliza para expandir o “desempaquetar” los elementos de un array,
+      objeto o iterable.
+    </p>
+    <h2>Rest</h2>
+    <p>
+      Se utiliza para agrupar o “empaquetar” varios elementos en una sola
+      variable (generalmente un array).
+    </p>
+
+    <script>
+      const numeros = [10, 20, 30];
+      const nuevosNumeros = [0, ...numeros, 40, 50];
+
+      console.log(nuevosNumeros);
+
+      function sumarTodos(...numeros) {
+       return numeros.reduce((accum, numero) => accum + numero, 0);
+      }
+    console.log(`SumarTodo con reduce: ${sumarTodos(3, 7, 5)}`);
+
+    function sumar(...numeros) {
+        let suma = 0;
+        for (const numero of numeros) {
+          suma += numero;
+        }
+        return suma;
+      }
+      console.log(`SumarTodo con bucle for...of: ${sumar(3, 2, 2)}`);
+
+
+
+
+
+
+
+      console.log("\nNuevas pruebas")
+
+      const num = [10, 20, 30];
+      const numNuevo = [0, ...num, 40, 50];
+      console.log(`El nuevo array es ${numNuevo}`)
+
+      function sumarTodos2 (...numbers){
+        let suma = 0;
+        for (const n of numbers) {
+          suma += n;
+        }
+        return suma;
+      }
+      console.log(`Suma con bucle: ${sumarTodos2(2,4,6)}`);
+
+      function sumarConReduce (... numb){
+        return numb.reduce((accum, n) => accum + n, 0);
+      }
+      console.log(`Suma con reduce: ${sumarConReduce(2, 4, 6)}`);
+      
+    </script>
+  </body>
+</html>

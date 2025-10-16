@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros y BigInt</title>
+</head>
+<body>
+    <h1>Trabajando con números y BigInt</h1>
+    <script>
+        const num = 100;
+        const big = 50n;
+
+        console.log(`Num duplicado: ${num * 2}`);
+        console.log(`BigInt duplicado: ${big * 2n}`);
+
+        const sumaANumero = num + Number(big);
+        const sumaABigInt = big + BigInt(num);
+
+        console.log(`La suma convertida a num es : ${sumaANumero}`);
+        console.log(`La suma convertida a BigInt es : ${sumaABigInt}`);
+
+    </script>
+    
+</body>
+</html>

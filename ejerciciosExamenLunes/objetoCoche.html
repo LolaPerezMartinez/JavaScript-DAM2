@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetos</title>
+  </head>
+  <body>
+    <h1>Trabajando con objetos</h1>
+    <script>
+      const coche = {
+        marca: "Toyota",
+        precio: 20000,
+        motor: { tipo: "gasolina", potencia: 150 },
+        arrancar() {
+          return `El coche ${this.marca} de motor tipo ${this.motor.tipo} arranca.`;
+        },
+      };
+      console.log(coche.arrancar());
+      console.log(`La potencia del motor es`, coche.motor.potencia);
+    
+
+      console.log("\nCoche con nueva propiedad color");
+
+      coche.color = "rojo";
+
+      for (const key in coche) {
+        console.log(key, coche[key]);
+      }
+
+      Object.defineProperty(coche, "precioIVA", {
+        get() {
+          return this.precio * 1.21;
+        },
+      });
+
+      console.log("\nCoche con nueva propiedad calculada");
+      console.log(coche.precioIVA);
+
+      console.log("\nElimino propiedad motor");
+      delete coche.motor
+      
+      for(const key in coche){
+        console.log(key, coche[key]);
+      }
+
+      console.log("\nAñado propiedad numPuertas con propiedad calculada");
+      Object.defineProperty(coche, 'numPuertas', {
+        get (){
+            return `Cuatro puertas`
+        }
+      });
+
+      console.log(coche.numPuertas);
+
+      console.log("\nCoche final");
+      for(const key in coche){
+        console.log(key, coche[key]);
+      }
+    </script>
+  </body>
+</html>

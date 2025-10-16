@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Fondo</title>
+    <style>
+        *{
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        #btnCambiarFondo{
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            
+        }
+        #btnCambiarFondo:hover{
+            background-color: rgb(168, 238, 234);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Cambiar color de fondo</h1>
+    <button id="btnCambiarFondo">Cambiar color</button>
+
+    <script>
+       const boton = document.getElementById('btnCambiarFondo');
+       const colores = ['lightblue', 'lightgreen', 'lightyellow', 'lightpink', 'lavender'];
+
+       let indice = 0;
+       boton.addEventListener('click', () =>{
+        document.body.style.backgroundColor = colores [indice];
+        indice = (indice + 1) % colores.length;
+       });
+
+
+    </script>
+</body>
+</html>

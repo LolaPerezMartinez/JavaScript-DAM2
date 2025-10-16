@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coche</title>
+</head>
+<body>
+    <h1>Vamos a modelar un coche</h1>
+    <script>
+        const coche ={
+            marca: 'Toyota',
+            precio: 20000,
+            motor: {tipo: 'gasolina', potencia: 150}
+
+        }
+        
+        console.log(`El método arrancar:` );
+        function arrancar(){
+            console.log('El coche arranca.');
+        }
+
+       arrancar();
+       console.log("\n");
+
+       for (const key in coche) {
+           console.log(key, coche[key]);
+       }
+
+       coche.color = 'rojo';
+
+       console.log("\nEl coche con la propiedad añadida color = rojo");
+       for(const [key, values] of Object.entries(coche)){
+            console.log(key, values);
+       }
+       console.log("\n");
+
+       console.log("\nAñadir precioIVA como propiedad calculada");
+       Object.defineProperty(coche, 'precioIVA', {
+        get(){
+            return this.precio * 1.21;
+        }
+       });
+
+      console.log(`El precio del coche ${coche.marca} tiene un precio con IVA de ${coche.precioIVA}`);
+
+      delete coche.motor;
+
+      console.log("\nCoche sin propiedad motor: ");
+      for (const key in coche) {
+        console.log(key, coche[key]);
+        
+        
+      }
+    </script>
+    
+</body>
+</html>

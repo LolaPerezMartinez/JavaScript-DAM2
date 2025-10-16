@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores 2</title>
+</head>
+<body>
+    <h1 id="titulo-principal">Productos en venta</h1>
+    <section>
+    <div class="producto">
+        <h3>Tomates</h3>
+            <p>Los tomates estan muy buenos</p>
+    </div>
+    <div class="producto">
+        <h3>Pimientos</h3>
+            <p>Los pimientos son muy saludables y hay de muchos colores.</p>
+    </div>
+    <div class="producto">
+        <h3>Arroz</h3>
+            <p>El arroz es barato y saludable</p>
+    </div>
+    <div class="producto">
+        <h3>Patatas</h3>
+            <p>Las patatas están muy ricas cocinadas de muchas formas.</p>
+    </div>
+    </section>
+
+    <h2 id="ofertas">Productos en oferta</h2>
+    <div>
+        <li class="oferta">Aceite: <span> Es muy beneficioso para la salud.</span></li>
+        <li class="oferta">Plátanos: <span> Están riquisimos.</span></li>
+        <li class="oferta">Manzana: <span> Con una al día alargas tu esperanza de vida.</span></li>
+        <li class="oferta">Gel de ducha: <span> Te hacen sentir como en casa.</span></li>
+
+    </div>
+    <h2>Productos con últimas unidades</h2>
+    <h2>Productos rebajados por poco tiempo</h2>
+    <h2 id="destacado">Las castañas son el producto destacado de la semana</h2>
+    <footer>
+        Todos los productos son maravillosos y cada uno tiene sus cualidades.
+    </footer>
+    
+    <script>
+        const s1 = document.getElementById('titulo-principal');
+        s1.style.background = 'yellow';
+
+        //border para que no se tape con el siguiente ejercicio
+        const s2 = document.querySelector('.producto');
+        s2.style.border = '2px solid red';
+
+        const s3 = document.querySelectorAll('.producto');
+        s3.forEach(p => {p.style.background = 'lightgreen'});
+
+        const s4 =  document.querySelectorAll('p');
+        s4.forEach(p => {p.style.background = 'pink'});
+
+        const s5 = document.querySelectorAll('.oferta');
+        s5.forEach(e => {e.style.background = 'orange'});
+
+        //border para que no se tape con el siguiente ejercicio
+        const s6 = document.getElementById('ofertas').style.border = '2px solid black';
+
+        const s7 = document.querySelectorAll('h2');
+        s7.forEach(e => {e.style.background = 'violet'});
+
+        const s8 = document.querySelectorAll('span');
+        s8.forEach(e => {e.style.background = 'cyan'});
+
+        const s9 = document.querySelectorAll('div');
+        s9.forEach(e => {e.style.background = 'beige'});
+
+        const s10 = document.querySelector('footer').style.background = 'lavender';
+
+        //Selecciona el segundo <div> con clase producto coral
+        const s11 = document.querySelector('.producto:nth-of-type(2)').style.background = 'coral';
+
+        //Selecciona el primer <p> con clase oferta blue
+        const s12 = document.querySelector('.oferta:first-of-type').style.background = 'blue';
+
+        //Selecciona el último <div> con clase producto
+        const s13 = document.querySelector('.producto:last-of-type').style.background = 'grey';
+
+        const s14 = document.querySelectorAll('h1');
+        s14.forEach(e => {e.style.background = 'peachpuff'});
+
+        const s15 = document.getElementById('destacado').style.background = 'gold';
+
+        // Seleciona el tercer <div> con clase producto 
+        const s16 = document.querySelector('.producto:nth-of-type(3)').style.background = 'lightcyan';
+
+        const s17 = document.querySelectorAll('h2');
+        h2.forEach(e => e.style.background = ' thistle');
+
+        //Selecciona el primer <div> del documento
+        const s18 = document.querySelector('div:first-of-type').style.background = 'aquamarine';
+            
+        //Selecciona el segundo <p> con clase oferta 
+        const s19 = document.querySelector('.oferta:nth-of-type(2)').style.background = 'lightpink';
+
+       const s20 = document.querySelector('body').style.background = 'red';
+    </script>
+</body>
+</html>

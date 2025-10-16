@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros Binarios</title>
+    <style>
+        *{
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        button{
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crear números binarios</h1>
+    <h3>El numero es </h3>
+    <button id="botonCero">0</button>
+    <button id="botonUno">1</button>
+    
+    <script>
+      const numero = new Array();
+      const boton0 = document.getElementById('botonCero');
+      const boton1 = document.getElementById('botonUno');
+      const texto = document.querySelector('h3');
+
+
+
+    function cambiarBit(bit){
+        numero.push(bit);
+        texto.innerText = `El numero es ${numero.join(" ")}`;
+    }
+
+    boton0.addEventListener('click', () =>{
+        cambiarBit(0);
+    });
+
+    boton1.addEventListener('click', () =>{
+        cambiarBit(1);
+    });
+
+
+    </script>
+</body>
+</html>

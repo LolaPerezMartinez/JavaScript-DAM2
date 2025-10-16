@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden superior</title>
+</head>
+<body>
+    <h1>Funciones de orden superior</h1>
+
+    <script>
+        
+        function aplicarDescuento(calcularPrecio, precio, descuento){
+            return calcularPrecio(precio, descuento);
+        }
+
+        function precioDescuentoSimple(precio, descuento){
+            return precio - (precio * descuento / 100);
+        }
+
+        function precioDescuentoDoble(precio, descuento){
+            const primerDescuento =  precioDescuentoSimple(precio, descuento);
+            return primerDescuento - (primerDescuento * descuento / 100);
+        }
+
+        console.log(aplicarDescuento(precioDescuentoSimple, 100, 10));
+        console.log(aplicarDescuento(precioDescuentoDoble, 100, 10))
+    </script>
+    
+</body>
+</html>

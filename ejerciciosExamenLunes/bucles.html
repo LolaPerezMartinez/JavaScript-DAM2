@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bucles</title>
+  </head>
+  <body>
+    <h1>Trabajando con bucles</h1>
+    <script>
+      console.log("\nEjercicio 1: Bucle for básico");
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+      }
+
+      console.log("\nEjercicio 2: for...of con array");
+      const frutas = ["manzana", "pera", "platano"];
+      for (const fruta of frutas) {
+        console.log(fruta);
+      }
+
+      console.log("\nEjercicio 3: for...of con índice");
+      const colores = ["rojo", "verde", "azul"];
+
+      for (const [indice, color] of colores.entries()) {
+        console.log(`Posicion ${indice}: ${color}`);
+      }
+
+      console.log("\nEjercicio 4: for...in con objeto");
+      const libro = { titulo: "El Quijote", autor: "Cervantes", año: 1605 };
+      for (const clave in libro) {
+        console.log(`Clave: ${clave}. Valor: ${libro[clave]}`);
+      }
+
+      console.log("\nEjercicio 5: for...of con Object.keys()");
+      for (const key of Object.keys(libro)) {
+        console.log(`Clave: ${key}`);
+      }
+
+      console.log("\nEjercicio 6: for...of con Object.values()");
+      for (const valor of Object.values(libro)) {
+        console.log(`Valor: ${valor}`);
+      }
+
+      console.log("\nEjercicio 7: for...of con Object.entries()");
+      for (const [clave, valor] of Object.entries(libro)) {
+        console.log(`Clave: ${clave}. Valor: ${valor}`);
+      }
+
+      console.log("\nEjercicio 8: while básico");
+      let numeroInicio = 5;
+      while (numeroInicio >= 1) {
+        console.log(numeroInicio);
+        numeroInicio--;
+      }
+
+      console.log("\nEjercicio 9: do...while");
+      numero = 2;
+      do {
+        console.log(numero);
+        numero +=2 ;
+      } while (numero <= 10);
+
+      console.log("\nEjercicio 10: forEach básico");
+      const precios = [10, 20, 30, 40];
+
+      for (const precio of precios) {
+        console.log(`Precio: ${precio} euros.`);
+      }
+
+      console.log("\nEjercicio 11: for con incremento de 2");
+      for (let i = 1; i <= 15; i += 2) {
+        console.log(i);
+      }
+
+      console.log("\nEjercicio 12: for...of sumando elementos");
+      const numeros = [5, 10, 15, 20];
+      let suma = 0;
+      for (const numero of numeros) {
+        suma += numero;
+      }
+
+      console.log(`La suma de todos los números es ${suma}`);
+
+      console.log("\nEjercicio 13: for...in contando propiedades");
+      const coche = {
+        marca: "Toyota",
+        modelo: "Corolla",
+        año: 2020,
+        color: "blanco",
+      };
+      let numPropiedades = 0;
+      for (const c in coche) {
+        numPropiedades++;
+      }
+      console.log(`El objeto tiene ${numPropiedades} propiedades.`);
+
+      console.log("\nEjercicio 14: forEach con Object.entries()");
+      const alumno = { nombre: "Juan", edad: "20", curso: "2DAM" };
+      Object.entries(alumno).forEach(([key, valor]) =>
+        console.log(`${key}: ${valor}`)
+      );
+
+      console.log("\nEjercicio 15: while con condición");
+      numero = 3;
+      while (numero <= 20) {
+        console.log(numero);
+        numero += 3;
+      }
+
+      console.log("\nEjercicio 16: map");
+      const temperaturas = [20, 25, 30, 35];
+      const farenheit = temperaturas.map(t => t * 1.8 + 32);
+      console.log(`Temperaturas en farenheit: ${farenheit}`);
+
+      console.log("\nEjercicio 17: filter");
+      const edades = [12, 18, 25, 16, 30, 14];
+      const mayorEdad = edades.filter(e => e >= 18);
+      console.log(`Personas mayores de edad: ${mayorEdad}`);
+
+      console.log("\nEjercicio 18: for descendente");
+      for(let i = 20; i >= 10; i--){
+        console.log(i);
+      }
+
+      console.log("\nEjercicio 19: for...of con strings");
+      const palabras = ['hola', 'mundo', 'JavaScript'];
+      for(const palabra of palabras){
+        console.log(`La palabra ${palabra} tiene ${palabra.length}`);
+      }
+
+      console.log("\nEjercicio 20: do...while con acumulador");
+      suma = 0;
+      numero = 1;
+      do{
+        suma+=numero;
+        numero++;
+      }while(numero <= 5);
+
+      console.log(`La suma es ${suma}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*console.log("\nEjercicio 1: Bucle for básico");
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+      }
+
+      console.log("\nEjercicio 2: for...of con array");
+      const frutas = ["manzana", "pera", "platano"];
+      for (const fruta of frutas) {
+        console.log(fruta);
+      }
+
+      console.log("\nEjercicio 3: for...of con índice");
+      const colores = ["rojo", "verde", "azul"];
+      for (const [indice, color] of colores.entries()) {
+        console.log(`Posicion ${indice}: ${color}.`);
+      }
+
+      console.log("\nEjercicio 4: for...in con objeto");
+      const libro = { titulo: "El Quijote", autor: "Cervantes", año: 1605 };
+      for (const key in libro) {
+        console.log(`Clave: ${key}. Valor: ${libro[key]}`);
+      }
+
+      console.log("\nEjercicio 5: for...of con Object.keys()");
+      for (const key of Object.keys(libro)) {
+        console.log(`Clave: ${key}`);
+      }
+
+      console.log("\nEjercicio 6: for...of con Object.values()");
+      for (const valor of Object.values(libro)) {
+        console.log(`Valor: ${valor}`);
+      }
+
+      console.log("\nEjercicio 7: for...of con Object.entries()");
+      for (const [key, values] of Object.entries(libro)) {
+        console.log(`Clave: ${key}. Valor: ${values}`);
+      }
+
+      console.log("\nEjercicio 8: while básico");
+      let numero = 5;
+
+      while (numero >= 1) {
+        console.log(numero);
+        numero--;
+      }
+
+      console.log("\nEjercicio 9: do...while");
+      numero = 2;
+      do {
+        if (numero % 2 == 0) {
+          console.log(numero);
+        }
+        numero++;
+      } while (numero <= 10);
+
+      console.log("\nEjercicio 10 : forEach básico");
+      const precios = [5, 10, 15, 20];
+      for (const precio of precios) {
+        console.log(`Precio: ${precio} euros.`);
+      }
+      console.log("\nEjercicio 10.1: forEach básico sumatorio");
+
+      let suma = 0;
+
+      for (const precio of precios) {
+        suma += precio;
+      }
+      console.log(suma);
+
+      console.log("\nEjercicio 10.2: reduce sumatorio");
+      console.log(precios.reduce((accum, n) => accum + n, 0));
+
+      console.log("\nEjercicio 11: for con incremento de 2");
+      for (let i = 1; i <= 15; i += 2) {
+        console.log(i);
+      }
+
+      console.log("\nEjercicio 12: for...of sumando elementos");
+      const numeros = [5, 10, 15, 20];
+      suma = 0;
+      for (const n of numeros) {
+        suma += n;
+      }
+      console.log(suma);
+
+      console.log("\nEjercicio 13: for...in contando propiedades");
+      const coche = {
+        marca: "Toyota",
+        modelo: "Corolla",
+        año: 2020,
+        color: "blanco",
+      };
+
+      let numeroPropiedades = 0;
+      for (const key in coche) {
+        numeroPropiedades++;
+      }
+      console.log(`El objeto tiene ${numeroPropiedades} propiedades.`);
+
+      console.log("\nEjercicio 14: forEach con Object.entries()");
+      const alumno = { nombre: "Juan", edad: 20, curso: "2DAM" };
+      Object.entries(alumno).forEach(([clave, valor]) =>
+        console.log(`${clave}: ${valor}`)
+      );
+
+      console.log("\nEjercicio 15: while con condición");
+      numero = 3;
+      while (numero <= 20) {
+        console.log(numero);
+        numero += 3;
+      }
+
+      console.log("\nEjercicio 16: map");
+      const temperaturas = [20, 25, 30, 35];
+      const tempFaranheit = temperaturas.map(n => n * 1.8 + 32);
+      console.log(tempFaranheit);
+
+
+      console.log("\nEjercicio 17: filter");
+      const edades = [12, 18, 25, 16, 30, 14];
+      const mayoresEdad = edades.filter(e => e >= 18);
+      console.log(mayoresEdad);
+
+      console.log("\nEjercicio 18: for descendente");
+      for(let i = 20; i >= 10; i--){
+        console.log(i);
+      }
+
+      console.log("\nEjercicio 19: for...of con strings");
+      const palabras = ['hola', 'mundo', 'JavaScript'];
+      for(const palabra of palabras){
+        console.log(`La palabra ${palabra} tiene ${palabra.length}.`);
+      }
+
+      console.log("\nEjercicio 20: do...while con acumulador");
+      numero = 1;
+      let acumulador = 0;
+      while(numero <= 5){
+        acumulador += numero;
+        numero++;
+      }
+      console.log(`Resultado : ${acumulador}`)*/
+    </script>
+  </body>
+</html>

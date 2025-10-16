@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores 2</title>
+</head>
+<body>
+    <h1 id="titulo-principal">Productos en venta</h1>
+    <section>
+    <div class="producto">
+        <h3>Tomates</h3>
+            <p>Los tomates estan muy buenos</p>
+    </div>
+    <div class="producto">
+        <h3>Pimientos</h3>
+            <p>Los pimientos son muy saludables y hay de muchos colores.</p>
+    </div>
+    <div class="producto">
+        <h3>Arroz</h3>
+            <p>El arroz es barato y saludable</p>
+    </div>
+    <div class="producto">
+        <h3>Patatas</h3>
+            <p>Las patatas están muy ricas cocinadas de muchas formas.</p>
+    </div>
+    </section>
+
+    <h2 id="ofertas">Productos en oferta</h2>
+    <div>
+        <li class="oferta">Aceite: <span> Es muy beneficioso para la salud.</span></li>
+        <li class="oferta">Plátanos: <span> Están riquisimos.</span></li>
+        <li class="oferta">Manzana: <span> Con una al día alargas tu esperanza de vida.</span></li>
+        <li class="oferta">Gel de ducha: <span> Te hacen sentir como en casa.</span></li>
+
+    </div>
+    <h2>Productos con últimas unidades</h2>
+    <h2>Productos rebajados por poco tiempo</h2>
+    <h3 class="destacado">Las castañas son el producto destacado de la semana</h2>
+    <footer>
+        Todos los productos son maravillosos y cada uno tiene sus cualidades.
+    </footer>
+    
+    <script>
+        //Selecciona todos los elementos <div> y cámbiales el color de fondo a beige (beige).
+        console.log("\nEjercicio 9: Selector de etiqueta div");
+        const e9 = document.querySelectorAll('div').forEach(e => e.style.background = 'beige');
+
+        //Selecciona el elemento <footer> y cámbiale el color de fondo a lavanda (lavender)
+        console.log("\nEjercicio 10: Selector de footer");
+        const e10 = document.querySelector('footer').style.background = 'yellow';
+
+        //segundo div clase producto y cámbiale el color de fondo a coral (coral).
+        console.log("\nEjercicio 11: Selector nth-child (segundo elemento)");
+        const e11 = document.querySelector('.producto:nth-of-type(2)').style.background = 'coral';
+
+        //Selecciona el primer <p> con :first-of-type() clase oferta y cámbiale el color de fondo a turquesa (turquoise).
+        console.log("\nEjercicio 12: Selector de primer elemento");
+        const e12 = document.querySelector('.oferta:first-of-type').style.background = 'turquoise';
+
+        //Selecciona el último <div> con clase producto 
+        console.log("\nEjercicio 13: Selector de último elemento");
+        const e13 = document.querySelector('.producto:last-of-type').style.background = 'salmon';
+
+        //Selecciona todos los <h1> del documento y cámbiales el color de fondo a melocotón (orange).
+        console.log("\nEjercicio 14: Selector múltiple de etiquetas");
+        const e14 = document.querySelectorAll('h2').forEach(e => e.style.background = 'orange');
+
+        //Selecciona el elemento con clase destacado y cámbiale el color de fondo a pink.
+        console.log("\nEjercicio 15: Selector por clase destacado");
+        const e15 = document.querySelector('.destacado').style.background = 'pink';
+
+        //Selecciona el tercer <div> con clase producto cámbiale el color de fondo a menta (lightcyan).
+        console.log("\nEjercicio 16: Selector nth-child (tercer elemento)");
+        const e16 = document.querySelector('.producto:nth-of-type(3)').style.background = 'lightcyan';
+
+        //Selecciona el primer <div> del documento (usando div:first-of-type) y cámbiale el color de fondo a verde agua (aquamarine).
+        console.log("\nEjercicio 18: Selector del primer div");
+        const e18 = document.querySelector('div:first-of-type').style.background = 'aquamarine';
+
+        //Selecciona el segundo <p> con clase oferta (usando .oferta:nth-of-type(2)) y cámbiale el color de fondo a rosa claro (lightpink).
+        console.log("\nEjercicio 19: Selector de segundo p con clase oferta");
+        const e19 = document.querySelector('.oferta:nth-of-type(2)').style.background = 'lightpink';
+
+        console.log("\nEjercicio 20: Selector de body");
+        const e20 = document.querySelector('body').style.background = 'cornsilk';
+
+    </script>
+</body>
+</html>

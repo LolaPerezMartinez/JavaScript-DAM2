@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binarios</title>
+    <style>
+        *{
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        #cero, #uno{
+            padding: 10px;
+            margin: 5px;
+            font-size: medium;
+            font-weight: bold;
+            border-radius: 10px;
+            background-color: rgb(238, 135, 207);
+        }
+        #cero:hover, #uno:hover{
+            background-color:rgb(233, 45, 177);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Crear números binarios</h1>
+    <p>El numero es</p>
+    <button id="cero">0</button>
+    <button id="uno">1</button>
+
+    <script>
+        const botonCero = document.getElementById('cero');
+        const botonUno = document.getElementById('uno');
+        const p = document.querySelector('p');
+        const array = new Array();
+
+        function cambiarNumero(numero){
+            array.push(numero);
+        }
+
+        botonCero.addEventListener('click', () => {
+            cambiarNumero(0);
+            p.innerText = `El numero es ${array.join("")}`;
+            
+        });
+
+        botonUno.addEventListener('click', () =>{
+            cambiarNumero(1);
+            p.innerText = `El numero es ${array.join("")}`;
+        });
+        
+        console.log(array);
+        </script>
+    
+</body>
+</html>

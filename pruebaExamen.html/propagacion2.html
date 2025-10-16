@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propagación</title>
+    <style>
+    #externo{
+        border: 2px solid red;
+        /*padding: 10px;*/
+        margin: 10px;
+        }
+    #medio{
+        border: 2px solid blue;
+       /* padding: 10px;*/
+        margin: 10px;
+    }
+    #interno{
+        border: 2px solid black;
+        /*padding: 10px;*/
+        margin: 10px
+    }
+    #button{
+        background-color: burlywood;
+        /*padding: 10px;*/
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div id="externo">
+        <div id="medio">
+            <div id="interno">
+                <button id="boton">Pulsa</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const externo = document.getElementById('externo');
+        const medio = document.getElementById('medio');
+        const interno = document.getElementById('interno');
+        const boton = document.getElementById('boton');
+
+        boton.addEventListener('click', () => console.log('Boton en fase de burbujeo'));
+        interno.addEventListener('click', () => {console.log('Interno en fase de burbujeo')});
+        medio.addEventListener('click', () => {console.log('Medio en fase de burbujeo')});
+        externo.addEventListener('click', () => {console.log('Externo en fase de burbujeo')});
+
+        boton.addEventListener('click', () => {console.log('Boton en fase de captura')}, true);
+        interno.addEventListener('click', () => {console.log('Interno en fase captura')}, true);
+        medio.addEventListener('click', () => {console.log('Medio en fase de captura')}, true);
+        externo.addEventListener('click', () => {console.log('Externo en fase de captura')}, true);
+
+       boton.addEventListener('click', (e) => {
+        console.log('Boton parado en fase de captura');
+            e.stopPropagation();
+       }, true);
+    </script>
+</body>
+</html>
